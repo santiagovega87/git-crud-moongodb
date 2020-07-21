@@ -1,0 +1,42 @@
+<%- include('./partials/_header') -%>
+
+
+
+    <div class="container">
+        <div class="row">
+            <!--FORM-->
+            <div><a href="index.ejs" class="btn btn-info">Return</a></div>
+            <div><a class="btn btn-info ml-2">Delete All</a></div>
+            <!--LIST-->
+            <div class="col-md-7">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>operation</th>
+                        </tr>
+                    </thead>
+                    <tbody>                    
+                         <% for(var i = 0; i < tasks.length; i++) { %>
+                                <% if (tasks[i].eliminado == false) { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= tasks[i].title %></td>
+                                <td><%= tasks[i].description %></td>
+                                <td>                                    
+                                    <a href="/supr/<%= tasks[i]._id %>" class="btn btn-danger">Delete</a>
+                                    <a href="/restore/<%= tasks[i]._id %>" class="btn btn-info">Restore</a>
+                                </td>
+                            </tr>                  
+                            <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       
+    </div>    
+
+<%- include('./partials/_footer') -%>

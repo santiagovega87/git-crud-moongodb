@@ -1,0 +1,33 @@
+
+
+<%- include('./partials/_header') -%>
+
+<pre>
+    DATA MongoDB
+    <%= task %>
+</pre>
+<!--FORM-->
+<div><a>Return</a></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/update/<%= task._id %>" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="title" placeholder="inserta un titulo" class="form-control" value="<%= task.title%>">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="description" id="" cols="80" class="form-control" placeholder="inserta una descripcion"><%= task.description%></textarea>
+                        </div>
+                        <button type="submit" name="button" class="btn btn-primary btn-block">update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--FORM-->
+
+<%- include('./partials/_footer') -%>
